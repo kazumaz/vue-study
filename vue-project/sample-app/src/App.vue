@@ -1,42 +1,51 @@
+
 <template>
-  <div>
-    <v-toolbar
-      dark
-      prominent
-      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
-    >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+<v-app>
+  <v-app-bar
+    app
+    color="primary"
+    dark
+  >
+    <v-app-bar-nav-icon @click.stop="toggleSideMenu"></v-app-bar-nav-icon>
+    <v-toolbar-title>マイアドレス帳</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items>
+      <v-btn text @click="logout">ログアウト</v-btn>
+    </v-toolbar-items>
+  </v-app-bar>
+  <SideNav/>
 
-      <v-toolbar-title>Vuetify</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-export</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <v-content>
-  <router-view />
-</v-content>
-  </div>
+  <v-content>
+    <v-container fluid fill-height align-start>
+      <router-view/>
+    </v-container>
+  </v-content>
+</v-app>
 </template>
 
 <script>
-import Header from "./components/Header"
+import firebase from 'firebase'
+import SideNav from './components/SideNav'
+import { mapActions } from 'vuex'
 export default {
-  name: 'App',
-  components: {
-    Header
-  },
-  data () {
-    return {
-      //
+name: 'App',
+components: {
+  SideNav
+},
+created () {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      this.setLoginUser(user)
+    } else {
+      this.deleteLoginUser()
     }
-  },
-  methods: {
-    openSideMenu () {
-      // this.$store.dispatch('toggleSideMenu')
-    }
-  }
+  })
+},
+data: () => ({
+  //
+}),
+methods: {
+  ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser'])
 }
+};
 </script>
