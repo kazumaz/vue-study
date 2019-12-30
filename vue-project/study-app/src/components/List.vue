@@ -24,6 +24,7 @@
         {{ todo.text }}
       </span>
     </label>
+    <span @click="removeToDo(index)" class="command">[☓]</span>
   </li>
 </ol>
   </div>
