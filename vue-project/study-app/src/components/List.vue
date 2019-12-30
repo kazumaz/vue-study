@@ -1,5 +1,14 @@
 <template>
   <div class="list">
+    <form v-on:submit.prevent="addNewTodo">
+  <label for="new-todo">Add a todo</label>
+  <input
+    v-model="newTodoText"
+    id="new-todo"
+    placeholder="E.g. Feed the cat"
+  >
+  <button>Add</button>
+</form>
     <h2>Todos:</h2>
     <ol>
   <li v-for="todo in todos" :key="todo.id">
@@ -40,10 +49,11 @@ export default {
     toggle: function(todo){
       todo.done = !todo.done
     },
-    addToDo: function(todo){
+    addNewTodo: function(){
       this.todos.push({
       id: this.nextTodoId++,
-      text: todo
+      text: this.newTodoText,
+      done: false
 })
     }
   }
