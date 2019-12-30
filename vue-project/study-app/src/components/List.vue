@@ -58,7 +58,9 @@ export default {
       })
     },
     removeToDo: function(todo){
+      if(confirm('Are you sure?')) {
       this.todos.splice(this.todos.indexOf(todo), 1)
+    }
     }
   }
 }
