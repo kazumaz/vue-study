@@ -1,13 +1,27 @@
 <template>
   <div id="app">
+    {{ header }}
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/listt">List</router-link>
+      <router-link to="/list">List</router-link>
     </div>
     <router-view/>
+    {{ footer }}
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      header: 'This is Header',
+      footer: 'This is footer'
+
+    }
+  }
+}
+</script>
 
 <style>
 #app {
