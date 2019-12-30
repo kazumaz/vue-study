@@ -56,8 +56,8 @@ export default {
       done: false
       })
     },
-    removeToDo: function(){
-      //// TODO: implement
+    removeToDo: function(todo){
+      this.todos.splice(this.todos.indexOf(todo), 1)
     }
   }
 }
