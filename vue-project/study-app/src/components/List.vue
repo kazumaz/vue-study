@@ -54,7 +54,10 @@ export default {
       id: this.nextTodoId++,
       text: this.newTodoText,
       done: false
-})
+      })
+    },
+    removeToDo: function(){
+      //// TODO: implement
     }
   }
 }
