@@ -6,7 +6,7 @@
           <img src="https://avatars2.githubusercontent.com/u/1363954?s=460&v=4">
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title>Kazuya Kojima</v-list-item-title>
+          <v-list-item-title>kazuma matsumoto</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
