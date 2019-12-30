@@ -32,12 +32,19 @@ export default {
         { id: 2, text: "Learn Vue", done: false },
         { id: 3, text: "Play around in JSFiddle", done: true },
         { id: 4, text: "Build something awesome", done: true }
-      ]
+      ],
+      nextTodoId: 5
     }
   },
   methods: {
     toggle: function(todo){
       todo.done = !todo.done
+    },
+    addToDo: function(todo){
+      this.todos.push({
+      id: this.nextTodoId++,
+      text: todo
+})
     }
   }
 }
