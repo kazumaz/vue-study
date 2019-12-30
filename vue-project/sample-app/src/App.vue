@@ -1,26 +1,32 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-side-icon @click.stop="openSideMenu"></v-toolbar-side-icon>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>マイアドレス帳</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
-    <SideNav/>
+  <div>
+    <v-toolbar
+      dark
+      prominent
+      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-export</v-icon>
+      </v-btn>
+    </v-toolbar>
     <v-content>
-    </v-content>
-  </v-app>
+  <router-view />
+</v-content>
+  </div>
 </template>
 
-
 <script>
-import SideNav from './components/SideNav'
+import Header from "./components/Header"
 export default {
   name: 'App',
   components: {
-    SideNav
+    Header
   },
   data () {
     return {
@@ -29,7 +35,7 @@ export default {
   },
   methods: {
     openSideMenu () {
-      this.$store.dispatch('toggleSideMenu')
+      // this.$store.dispatch('toggleSideMenu')
     }
   }
 }
