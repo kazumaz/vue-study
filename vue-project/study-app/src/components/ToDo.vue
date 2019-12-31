@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="todo">
     <form v-on:submit.prevent="addNewTodo">
   <label for="new-todo">Add a todo</label>
   <input
@@ -34,7 +34,7 @@
 <script>
 
 export default {
-  name: 'List',
+  name: 'ToDo',
   data () {
     return {
       todos: [
