@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    {{ header }}
+    <Header/>
+    <!-- {{ header }} -->
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/list">List</router-link>
     </div>
     <router-view/>
-    {{ footer }}
+    <!-- {{ footer }} -->
+    <Footer/>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
 export default {
   data () {
     return {
@@ -19,6 +24,10 @@ export default {
       footer: 'This is footer'
 
     }
+  },
+  components: {
+    Header,
+    Footer
   }
 }
 </script>
